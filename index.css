@@ -1,0 +1,175 @@
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden; /* Prevent scrollbar due to the moving background */
+    position: relative;
+}
+
+/* Background Animation Styles */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%; /* Adjusted size */
+    height: 200%; /* Adjusted size */
+    background: url('background.png') repeat;
+    animation: moveBackground var(--animation-duration, 250s) linear infinite;
+    z-index: -1; /* Place the background behind other elements */
+    transform: translate(var(--translateX, 0), var(--translateY, 0));
+}
+
+@keyframes moveBackground {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-60%, -60%); }
+}
+
+#layered-image {
+    border-radius: 50%;
+    width: 130px; 
+    height: 130px; 
+}
+
+h1 {
+    margin-top: 10px;
+}
+
+h3 {
+    margin-top: 5px;
+}
+
+/* Dropdown styles */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #222222;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 4px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-item {
+    padding: 12px 16px;
+    color: #fff;
+    text-decoration: none;
+    display: block;
+}
+
+/* Image Credits Section */
+.image-credits {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px 0;
+    text-align: center;
+}
+
+.image-credits p {
+    margin: 0;
+    font-size: 12px;
+}
+
+
+/* Code below is from https://codepen.io/Hyperplexed/pen/OJdpEME  */
+
+:root {
+    --glow-rgb: 239 42 201;
+  }
+  
+  body {
+    background: linear-gradient(145deg, rgb(0, 0, 0), rgb(0, 0, 0));
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .glow-point {
+    position: absolute;
+    box-shadow: 0rem 0rem 1.2rem 0.6rem rgb(var(--glow-rgb));
+    pointer-events: none;
+  }
+  
+  .star {
+    position: absolute;
+    z-index: 2;
+    color: white;
+    font-size: 1rem;
+    animation-duration: 1500ms;
+    animation-fill-mode: forwards;
+    pointer-events: none;
+  }
+  
+  @keyframes fall-1 {
+    0% {
+      transform: translate(0px, 0px) rotateX(45deg) rotateY(30deg) rotateZ(0deg) scale(0.25);
+      opacity: 0;
+    }
+    
+    5% {
+      transform: translate(10px, -10px) rotateX(45deg) rotateY(30deg) rotateZ(0deg) scale(1);
+      opacity: 1;
+    }
+    
+    100% {
+      transform: translate(25px, 200px) rotateX(180deg) rotateY(270deg) rotateZ(90deg) scale(1);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes fall-2 {
+    0% {
+      transform: translate(0px, 0px) rotateX(-20deg) rotateY(10deg) scale(0.25);
+      opacity: 0;
+    }
+    
+    10% {
+      transform: translate(-10px, -5px) rotateX(-20deg) rotateY(10deg) scale(1);
+      opacity: 1;
+    }
+    
+    100% {
+      transform: translate(-10px, 160px) rotateX(-90deg) rotateY(45deg) scale(0.25);
+      opacity: 0;
+    }
+  }
+  
+  @keyframes fall-3 {
+    0% {
+      transform: translate(0px, 0px) rotateX(0deg) rotateY(45deg) scale(0.5);
+      opacity: 0;
+    }
+    
+    15% {
+      transform: translate(7px, 5px) rotateX(0deg) rotateY(45deg) scale(1);
+      opacity: 1;
+    }
+    
+    100% {
+      transform: translate(20px, 120px) rotateX(-180deg) rotateY(-90deg) scale(0.5);
+      opacity: 0;
+    }
+  }
